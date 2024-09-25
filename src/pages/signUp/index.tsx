@@ -56,7 +56,7 @@ export function SignUp() {
           error={!!errors.password?.message}
         />
 
-        <Button type="submit">Login</Button>
+        <Button type="submit">SignUp</Button>
       </form>
 
       <div className="mt-4">
