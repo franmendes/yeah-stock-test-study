@@ -12,7 +12,6 @@ export function Textarea({ label, error, ...rest }: TextareaProps) {
       <textarea
         className="w-full bg-[#242424] text-gray-primary placeholder:text-gray-primary p-2 outline-none rounded-lg"
         {...rest}
-        name="Description"
         rows={4}
       ></textarea>
       {error && <span className="text-red-600">{label} is required</span>}

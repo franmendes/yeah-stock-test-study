@@ -150,6 +150,7 @@ export function CreateOrEditProduct({ product }: CreateOrEditProductProps) {
         <div className="flex flex-col gap-10 justify-between flex-1">
           <Input
             label="Product Name"
+            name="productName"
             value={title}
             onChange={(event) => setTitle(event.currentTarget.value)}
             error={errors.includes("title")}
@@ -157,6 +158,7 @@ export function CreateOrEditProduct({ product }: CreateOrEditProductProps) {
           <div className="flex gap-4">
             <Input
               label="Quantity"
+              name="quantity"
               type="number"
               value={quantity}
               error={errors.includes("quantity")}
@@ -166,6 +168,7 @@ export function CreateOrEditProduct({ product }: CreateOrEditProductProps) {
             />
             <Input
               label="Measure_unity"
+              name="measureUnity"
               value={measure}
               error={errors.includes("measure")}
               onChange={(event) => setMeasure(event.currentTarget.value)}
@@ -177,6 +180,7 @@ export function CreateOrEditProduct({ product }: CreateOrEditProductProps) {
       <div className="grid gap-4 grid-cols-2  md:grid-cols-[1fr,1fr,1fr,2fr] mt-10">
         <Input
           label="Purchase price"
+          name="purchasePrice"
           type="number"
           value={purchasePrice}
           error={errors.includes("purchasePrice")}
@@ -186,6 +190,7 @@ export function CreateOrEditProduct({ product }: CreateOrEditProductProps) {
         />
         <Input
           label="Sale price"
+          name="salePrice"
           type="number"
           value={salePrice}
           error={errors.includes("salePrice")}
@@ -193,12 +198,14 @@ export function CreateOrEditProduct({ product }: CreateOrEditProductProps) {
         />
         <Input
           label="Currency"
+          name="currency"
           value={currency}
           error={errors.includes("currency")}
           onChange={(event) => setCurrency(event.currentTarget.value)}
         />
         <Input
           label="Supplier"
+          name="supplier"
           value={supplier}
           error={errors.includes("supplier")}
           onChange={(event) => setSupplier(event.currentTarget.value)}
@@ -209,6 +216,7 @@ export function CreateOrEditProduct({ product }: CreateOrEditProductProps) {
         <Textarea
           value={description}
           label="Description"
+          name="description"
           error={errors.includes("description")}
           onChange={(event) => setDescription(event.currentTarget.value)}
         />
