@@ -19,9 +19,12 @@ export function ProductCard({
   openModal,
 }: ProductCardProps) {
   return (
-    <div className="p-2 bg-[#323232] rounded-lg">
+    <div
+      className="p-2 bg-[#323232] rounded-lg"
+      data-testid="card--product-card"
+    >
       {type === TypeView.COLUMN ? (
-        <div>
+        <div data-testid="card-column--product-card">
           <div className="bg-[#4A4A4A] h-40 w-full rounded-lg flex items-center justify-center">
             <img src="/image.svg" alt="card" />
           </div>
@@ -48,7 +51,10 @@ export function ProductCard({
           </div>
         </div>
       ) : (
-        <div className="flex justify-between items-center">
+        <div
+          className="flex justify-between items-center"
+          data-testid="card-list--product-card"
+        >
           <div className="md:flex items-center gap-4">
             <div className="h-16 w-full md:w-36 bg-[#4A4A4A] flex items-center justify-center rounded">
               <img src="/image.svg" alt="card" className="w-5 h-8" />
