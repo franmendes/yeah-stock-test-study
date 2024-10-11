@@ -12,7 +12,7 @@ export function Modal({ open, children, onClose }: ModalProps) {
   const state = open ? "open" : "closed";
 
   return (
-    <div>
+    <div data-testid="modal-container--modal">
       <div
         data-state={state}
         className="data-[state=closed]:hidden fixed inset-0 bg-slate-800/50"

@@ -53,7 +53,7 @@ export function ProductCard({
       ) : (
         <div
           className="flex justify-between items-center"
-          data-testid="card-list--product-card"
+          data-testid="card-row--product-card"
         >
           <div className="md:flex items-center gap-4">
             <div className="h-16 w-full md:w-36 bg-[#4A4A4A] flex items-center justify-center rounded">

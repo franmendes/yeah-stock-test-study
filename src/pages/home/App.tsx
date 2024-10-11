@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Tab } from "../../components/Tab";
-import { ProductCard, TypeView } from "../../components/PorductCard";
+import { ProductCard, TypeView } from "../../components/ProductCard";
 import { TabView } from "../../components/TabView";
 import { Modal } from "../../components/Modal";
 import axios from "axios";

@@ -1,5 +1,5 @@
 import { Columns, List } from "@phosphor-icons/react";
-import { TypeView } from "../PorductCard";
+import { TypeView } from "../ProductCard";
 
 interface TabItemProps {
   view: TypeView;
@@ -13,11 +13,13 @@ export function TabView({ view, onChange }: TabItemProps) {
         data-state={view}
         className="text-gray-primary  data-[state=column]:text-white data-[state=column]:bg-black-light data-[state=column]:p-1 data-[state=column]:rounded"
         onClick={() => onChange(TypeView.COLUMN)}
+        data-testid="button-column--tab-view"
       >
         <Columns size={16} />
       </button>
       <button
         data-state={view}
+        data-testid="button-row--tab-view"
         className="text-gray-primary data-[state=row]:text-white data-[state=row]:bg-black-light data-[state=row]:p-1 data-[state=row]:rounded"
         onClick={() => onChange(TypeView.ROW)}
       >

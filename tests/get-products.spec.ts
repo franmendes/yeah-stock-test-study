@@ -114,4 +114,75 @@ test.describe("Get Product", () => {
 
     await page.waitForTimeout(3000);
   });
+
+  test("row grid type", async ({ page }) => {
+    await page.route("*/**/products?&", (route) => {
+      const products = [
+        {
+          id: "10",
+          title: "Iphone XR",
+          quantity: "1",
+          measure: "un",
+          salePrice: "800",
+          purchasePrice: "1200",
+          currency: "BRL",
+          supplier: "APPLE",
+          status: "completed",
+          description: "Iphone XR seminovo",
+          createdAt: new Date(),
+        },
+      ];
+
+      route.fulfill({
+        status: 200,
+        body: JSON.stringify(products),
+      });
+    });
+
+    await page.goto("/");
+
+    const button = await page.getByTestId("button-row--tab-view");
+
+    await button.click();
+
+    expect(await page.getByTestId("card-row--product-card")).toBeVisible();
+
+    await page.waitForTimeout(3000);
+  });
+
+  test("column grid type", async ({ page }) => {
+    await page.route("*/**/products?&", (route) => {
+      const products = [
+        {
+          id: "10",
+          title: "Iphone XR",
+          quantity: "1",
+          measure: "un",
+          salePrice: "800",
+          purchasePrice: "1200",
+          currency: "BRL",
+          supplier: "APPLE",
+          status: "completed",
+          description: "Iphone XR seminovo",
+          createdAt: new Date(),
+        },
+      ];
+
+      route.fulfill({
+        status: 200,
+        body: JSON.stringify(products),
+      });
+    });
+
+    await page.goto("/");
+
+    expect(await page.getByTestId("card-column--product-card")).toBeVisible();
+
+    page.getByTestId("button-row--tab-view").click();
+    page.getByTestId("button-column--tab-view").click();
+
+    expect(await page.getByTestId("card-column--product-card")).toBeVisible();
+
+    await page.waitForTimeout(3000);
+  });
 });
