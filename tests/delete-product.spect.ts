@@ -38,4 +38,44 @@ test.describe("Delete Product", () => {
 
     await page.waitForTimeout(3000);
   });
+
+  test("error delete products", async ({ page }) => {
+    await page.route("*/**/products?&", (route) => {
+      const products = [
+        {
+          id: "10",
+          title: "Iphone XR",
+          quantity: "1",
+          measure: "un",
+          salePrice: "800",
+          purchasePrice: "1200",
+          currency: "BRL",
+          supplier: "APPLE",
+          status: "completed",
+          description: "Iphone XR seminovo",
+          createdAt: new Date(),
+        },
+      ];
+
+      route.fulfill({
+        status: 200,
+        body: JSON.stringify(products),
+      });
+    });
+
+    await page.route("*/**/products/10", (route) => {
+      route.fulfill({
+        status: 400,
+      });
+    });
+
+    page.on("dialog", async (dialog) => {
+      expect(dialog.message()).toContain("Error when deleting product");
+      await dialog.dismiss();
+    });
+
+    await page.goto("/");
+    await page.getByText("Iphone XR").click();
+    await page.getByText("Trash").click();
+  });
 });
