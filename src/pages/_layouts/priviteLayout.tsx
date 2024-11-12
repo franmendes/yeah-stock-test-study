@@ -1,16 +1,16 @@
-import { Outlet /*useNavigate*/ } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import { Sidebar } from "../../components/SideBar";
 import { useEffect } from "react";
-//import { parseCookies } from "nookies";
+import { parseCookies } from "nookies";
 
 export function PrivateLayout() {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   useEffect(() => {
-    // const token = parseCookies(null).token;
-    // if (!token) {
-    //   navigate("/sign-in");
-    // }
+    const token = parseCookies(null).token;
+    if (!token) {
+      navigate("/sign-in");
+    }
   }, []);
 
   return (

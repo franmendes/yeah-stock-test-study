@@ -46,12 +46,13 @@ export function CreateOrEditProduct({ product }: CreateOrEditProductProps) {
       const product = {
         name: title,
         quantity,
-        measure,
+        measureUnity: measure,
         purchasePrice,
-        salePrice,
+        salesPrice: salePrice,
         currency,
         supplier,
         description,
+        active: true,
         id: crypto.randomUUID(),
         createdAt: new Date(),
       };
